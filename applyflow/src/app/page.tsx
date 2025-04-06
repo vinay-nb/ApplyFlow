@@ -2,6 +2,7 @@
 import { useState } from "react";
 import AddJobDetails from "./components/addJobDetails/AddJobDetails";
 import { useJobStore } from "./appStore";
+import JobBoard from "./components/jobBoard/JobBoard";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,6 +40,8 @@ export default function Home() {
         onClose={() => setIsModalOpen(false)}
         onSubmit={handleAddJob}
       />
+
+      <JobBoard />
     </div>
   );
 }
