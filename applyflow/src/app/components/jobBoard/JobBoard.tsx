@@ -38,7 +38,7 @@ export default function JobBoard() {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4 min-h-[700px]">
         {statuses.map((status) => (
           <Droppable droppableId={status} key={status}>
             {(provided) => (

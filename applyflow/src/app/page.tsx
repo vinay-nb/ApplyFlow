@@ -27,10 +27,10 @@ export default function Home() {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-6 w-[100%]">
       <button
         onClick={() => setIsModalOpen(true)}
-        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+        className="flex px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
       >
         Add Job
       </button>
