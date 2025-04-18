@@ -1,55 +1,46 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class", // Enables class-based dark mode
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}", // adjust paths to match your project
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "dark",
   theme: {
     extend: {
       colors: {
-        background: {
-          light: "#F9FAFB",
-          dark: "#1E1E1E",
-        },
-        surface: {
-          light: "#FFFFFF",
-          dark: "#2A2A2A",
-        },
-        primary: {
-          light: "#2563EB",
-          dark: "#3B82F6",
-        },
-        primaryHover: {
-          light: "#1D4ED8",
-          dark: "#60A5FA",
-        },
-        textPrimary: {
-          light: "#111827",
-          dark: "#F3F4F6",
-        },
-        textSecondary: {
-          light: "#6B7280",
-          dark: "#9CA3AF",
-        },
-        borderColor: {
-          light: "#E5E7EB",
-          dark: "#3F3F46",
-        },
-        accent: {
-          light: "#10B981",
-          dark: "#34D399",
-        },
-        danger: {
-          light: "#EF4444",
-          dark: "#F87171",
-        },
+        backgroundLight: "#F9FAFB",
+        backgroundDark: "#121212",
+        surfaceLight: "#FFFFFF",
+        surfaceDark: "#1E1E1E",
+        primaryLight: "#3B82F6",
+        primaryDark: "#60A5FA",
+        primaryHoverLight: "#2563EB",
+        primaryHoverDark: "#3B82F6",
+        textPrimaryLight: "#111827",
+        textPrimaryDark: "#F3F4F6",
+        textSecondaryLight: "#6B7280",
+        textSecondaryDark: "#9CA3AF",
+        borderColorLight: "#E5E7EB",
+        borderColorDark: "#2A2A2A",
+        accentLight: "#10B981",
+        accentDark: "#34D399",
+        errorLight: "#EF4444",
+        errorDark: "#F87171",
+        statusAppliedLight: "#CBD5E1",
+        statusAppliedDark: "#374151",
+        statusUnderReviewLight: "#6366F1",
+        statusUnderReviewDark: "#818CF8",
+        statusInterviewLight: "#FBBF24",
+        statusInterviewDark: "#FACC15",
+        statusSelectedLight: "#10B981",
+        statusSelectedDark: "#34D399",
+        statusRejectedLight: "#EF4444",
+        statusRejectedDark: "#F87171",
+      },
+      boxShadow: {
+        soft: "0 1px 3px rgba(0,0,0,0.05)",
+        medium: "0 4px 6px rgba(0,0,0,0.1)",
       },
       borderRadius: {
         xl: "1rem",
         "2xl": "1.5rem",
-      },
-      boxShadow: {
-        soft: "0 2px 12px rgba(0,0,0,0.04)",
       },
     },
   },

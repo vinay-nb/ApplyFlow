@@ -59,11 +59,11 @@ export default function JobBoard() {
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                       >
-                        <div className="text-sm font-medium">{job.jobName}</div>
-                        <div className="text-xs text-gray-500">
+                        <div className="text-sm font-medium text-black">{job.jobName}</div>
+                        <div className="text-xs text-black">
                           {job.companyName}
                         </div>
-                        <div className="text-xs text-gray-400 italic">
+                        <div className="text-xs text-black italic">
                           {job.appliedVia}
                         </div>
                       </div>
