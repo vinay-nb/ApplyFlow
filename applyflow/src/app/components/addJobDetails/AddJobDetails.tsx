@@ -57,7 +57,7 @@ export default function AddJobDetails({ isOpen, onClose, onSubmit }: Props) {
               type="text"
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
-              className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:ring-2 focus:ring-blue-500"
+              className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:ring-2 focus:ring-blue-500 text-black"
             />
           </div>
 
@@ -69,7 +69,7 @@ export default function AddJobDetails({ isOpen, onClose, onSubmit }: Props) {
               type="text"
               value={appliedVia}
               onChange={(e) => setAppliedVia(e.target.value)}
-              className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:ring-2 focus:ring-blue-500"
+              className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:ring-2 focus:ring-blue-500 text-black"
             />
           </div>
 
@@ -81,7 +81,7 @@ export default function AddJobDetails({ isOpen, onClose, onSubmit }: Props) {
               type="text"
               value={status}
               onChange={(e) => setStatus(e.target.value)}
-              className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:ring-2 focus:ring-blue-500"
+              className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:ring-2 focus:ring-blue-500 text-black"
             />
           </div>
 
@@ -93,7 +93,7 @@ export default function AddJobDetails({ isOpen, onClose, onSubmit }: Props) {
               type="date"
               value={appliedDate}
               onChange={(e) => setAppliedDate(e.target.value)}
-              className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:ring-2 focus:ring-blue-500"
+              className="mt-1 w-full rounded-md border border-gray-300 p-2 focus:ring-2 focus:ring-blue-500 text-black"
             />
           </div>
         </div>
@@ -101,7 +101,7 @@ export default function AddJobDetails({ isOpen, onClose, onSubmit }: Props) {
         <div className="mt-6 flex justify-end gap-3">
           <button
             onClick={onClose}
-            className="px-4 py-2 text-sm bg-gray-200 rounded-md hover:bg-gray-300"
+            className="px-4 py-2 text-sm bg-amber-300 rounded-md hover:bg-gray-300"
           >
             Cancel
           </button>
