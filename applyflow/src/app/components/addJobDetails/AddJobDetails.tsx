@@ -17,7 +17,7 @@ export default function AddJobDetails({ isOpen, onClose, onSubmit }: Props) {
   const [companyName, setCompanyName] = useState("");
   const [appliedVia, setAppliedVia] = useState("");
   const [status, setStatus] = useState("applied");
-  const [appliedDate, setAppliedDate] = useState("");
+  const [appliedDate, setAppliedDate] = useState(new Date().toISOString().slice(0, 10));
 
   const handleSubmit = () => {
     onSubmit({ jobName, companyName, appliedVia, status, appliedDate });
