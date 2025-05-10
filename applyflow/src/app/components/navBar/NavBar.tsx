@@ -16,8 +16,8 @@ const NavBar = () => {
   }, [searchQuery, jobs]);
 
   return (
-    <nav className="flex items-center justify-between w-[100%] h-14 shadow-amber-50 shadow-xs p-6">
-      <span className="">Apply Flow</span>
+    <nav className="flex items-center justify-between w-[100%] h-14 bg-light-background shadow-xs p-6">
+      <span className="dark:bg-dark-primary">Apply Flow</span>
 
       <div>
         <input
