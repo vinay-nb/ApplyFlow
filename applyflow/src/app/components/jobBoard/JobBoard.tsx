@@ -18,13 +18,17 @@ const statuses = [
 ] as const;
 
 export default function JobBoard() {
-  const [isMoreOption, setIsMoreOption] = useState(false);
+  const [isMoreOption, setIsMoreOption] = useState({ id: "", active: false });
   const menuRef = useRef<HTMLElement>(null);
   const jobs = useJobStore((s) => s.jobs);
   const updateJobStatus = useJobStore((s) => s.updateJobStatus);
 
-  const showMoreOptions = () => {
-    setIsMoreOption(true);
+  const showMoreOptions = (id: string) => {
+    setIsMoreOption((prev) => ({
+      ...prev,
+      id,
+      active: true,
+    }));
   };
 
   const groupedJobs = statuses.reduce((acc, status) => {
@@ -46,9 +50,16 @@ export default function JobBoard() {
 
   const handleClickOutside = (event: MouseEvent) => {
     if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-      setIsMoreOption(false);
+      setIsMoreOption((prev) => ({
+        ...prev,
+        active: false,
+      }));
     }
   };
+
+  const editJobCard = () => {};
+  
+  const deleteJobCard = () => {};
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -58,7 +69,7 @@ export default function JobBoard() {
   return (
     <>
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 min-h-[700px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 min-h-[700px] relative">
           {statuses.map((status) => (
             <Droppable droppableId={status} key={status}>
               {(provided) => (
@@ -79,12 +90,12 @@ export default function JobBoard() {
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
                         >
-                          <div className="flex justify-between text-sm font-medium text-[#f44336]">
+                          <div className="flex justify-between text-sm font-medium text-[#f44336] relative">
                             {job.jobName}
                             <span
                               ref={menuRef}
-                              onClick={showMoreOptions}
-                              className="relative cursor-pointer"
+                              onClick={() => showMoreOptions(job?.id)}
+                              className="cursor-pointer"
                             >
                               <TfiMoreAlt
                                 className="text-[#f44336]"
@@ -92,6 +103,13 @@ export default function JobBoard() {
                                 height={16}
                               />
                             </span>
+                            {isMoreOption?.active &&
+                              isMoreOption?.id === job?.id && (
+                                <MoreOption
+                                  onDelete={deleteJobCard}
+                                  onEdit={editJobCard}
+                                />
+                              )}
                           </div>
                           <div className="text-xs text-[#f44336]">
                             {job.companyName}
@@ -110,8 +128,6 @@ export default function JobBoard() {
           ))}
         </div>
       </DragDropContext>
-
-      {isMoreOption && <MoreOption />}
     </>
   );
 }
