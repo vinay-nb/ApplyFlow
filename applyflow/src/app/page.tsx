@@ -34,7 +34,7 @@ export default function Home() {
         <div>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="flex px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+            className="flex px-4 py-2 bg-[#f44336] text-white rounded-md cursor-pointer hover:bg-[#fca5a5]"
           >
             Add Job
           </button>
