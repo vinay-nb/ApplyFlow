@@ -16,13 +16,13 @@ const NavBar = () => {
   }, [searchQuery, jobs]);
 
   return (
-    <nav className="flex items-center justify-between w-[100%] h-14 bg-light-background shadow-xs p-6">
-      <span className="dark:bg-dark-primary">Apply Flow</span>
+    <nav className="flex items-center justify-between w-[100%] h-14 bg-light-background shadow-xs p-6 mt-1.5">
+      <span className="font-bold text-2xl">Apply Flow</span>
 
       <div>
         <input
           type="text"
-          className="border-[1px] border-amber-50 rounded-md w-96 h-10 p-2"
+          className="border-[1px] border-[#f44336] rounded-md w-96 h-10 p-2"
           placeholder="search by company name"
           value={searchQuery}
           onChange={handleSearchQuery}

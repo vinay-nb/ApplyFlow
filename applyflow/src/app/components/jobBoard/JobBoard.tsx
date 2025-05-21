@@ -18,13 +18,17 @@ const statuses = [
 ] as const;
 
 export default function JobBoard() {
-  const [isMoreOption, setIsMoreOption] = useState(false);
+  const [isMoreOption, setIsMoreOption] = useState({ id: "", active: false });
   const menuRef = useRef<HTMLElement>(null);
   const jobs = useJobStore((s) => s.jobs);
   const updateJobStatus = useJobStore((s) => s.updateJobStatus);
 
-  const showMoreOptions = () => {
-    setIsMoreOption(true);
+  const showMoreOptions = (id: string) => {
+    setIsMoreOption((prev) => ({
+      ...prev,
+      id,
+      active: true,
+    }));
   };
 
   const groupedJobs = statuses.reduce((acc, status) => {
@@ -46,9 +50,16 @@ export default function JobBoard() {
 
   const handleClickOutside = (event: MouseEvent) => {
     if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-      setIsMoreOption(false);
+      setIsMoreOption((prev) => ({
+        ...prev,
+        active: false,
+      }));
     }
   };
+
+  const editJobCard = () => {};
+  
+  const deleteJobCard = () => {};
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -58,45 +69,52 @@ export default function JobBoard() {
   return (
     <>
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 min-h-[700px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 min-h-[700px] relative">
           {statuses.map((status) => (
             <Droppable droppableId={status} key={status}>
               {(provided) => (
                 <div
-                  className="bg-gray-50 rounded-xl p-3 shadow-sm min-h-[200px]"
+                  className="bg-[#1f2937] rounded-xl p-3 shadow-sm min-h-[200px]"
                   ref={provided.innerRef}
                   {...provided.droppableProps}
                 >
-                  <h2 className="font-semibold text-sm text-gray-700 mb-3">
+                  <h2 className="font-semibold text-sm text-[#f44336] mb-3">
                     {status}
                   </h2>
                   {groupedJobs[status].map((job, index) => (
                     <Draggable key={job.id} draggableId={job.id} index={index}>
                       {(provided) => (
                         <div
-                          className="bg-white p-3 mb-2 rounded-lg border border-gray-200 shadow-sm"
+                          className="bg-[#374151] p-3 mb-2 rounded-lg border border-[#f44336] shadow-sm"
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
                         >
-                          <div className="flex justify-between text-sm font-medium text-black">
+                          <div className="flex justify-between text-sm font-medium text-[#f44336] relative">
                             {job.jobName}
                             <span
                               ref={menuRef}
-                              onClick={showMoreOptions}
-                              className="relative cursor-pointer"
+                              onClick={() => showMoreOptions(job?.id)}
+                              className="cursor-pointer"
                             >
                               <TfiMoreAlt
-                                className="text-black"
+                                className="text-[#f44336]"
                                 width={16}
                                 height={16}
                               />
                             </span>
+                            {isMoreOption?.active &&
+                              isMoreOption?.id === job?.id && (
+                                <MoreOption
+                                  onDelete={deleteJobCard}
+                                  onEdit={editJobCard}
+                                />
+                              )}
                           </div>
-                          <div className="text-xs text-black">
+                          <div className="text-xs text-[#f44336]">
                             {job.companyName}
                           </div>
-                          <div className="text-xs text-black italic">
+                          <div className="text-xs text-[#f44336] italic">
                             {job.appliedVia}
                           </div>
                         </div>
@@ -110,8 +128,6 @@ export default function JobBoard() {
           ))}
         </div>
       </DragDropContext>
-
-      {isMoreOption && <MoreOption />}
     </>
   );
 }
