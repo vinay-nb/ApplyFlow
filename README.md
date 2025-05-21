@@ -14,13 +14,13 @@ Job seekers often struggle to keep track of multiple job applications, applicati
 
 ## ✨ Features
 
-- 🔍 Track job applications with key details: company, job title, date, and method of application.
-- 🧩 Drag & drop job cards between statuses: `Applied`, `Under Review`, `Interview`, `Selected`.
-- 🗂️ Filter and search by status or company name.
-- 🧠 AI Suggestions (coming soon): smart prompts to help improve resumes or emails.
-- 🌙 Light & Dark mode for better accessibility.
-- 💾 LocalStorage support to preserve data across sessions.
-- ➕ Modal-based form to add new job applications.
+- Track job applications with key details: company, job title, date, and method of application.
+- Drag & drop job cards between statuses: `Applied`, `Under Review`, `Interview`, `Selected`.
+- Filter and search by status or company name.
+- AI Suggestions (coming soon): smart prompts to help improve resumes or emails.
+- Light & Dark mode for better accessibility.
+- LocalStorage support to preserve data across sessions.
+- Modal-based form to add new job applications.
 
 ---
 
