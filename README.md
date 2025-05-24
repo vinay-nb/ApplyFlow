@@ -29,9 +29,7 @@ Job seekers often struggle to keep track of multiple job applications, applicati
 - **Frontend:** React (with TypeScript), Next.js 14
 - **Styling:** Tailwind CSS
 - **State Management:** Zustand
-- **Drag & Drop:** `@dnd-kit/core`
-- **Iconography:** Lucide Icons
-
+- **Drag & Drop:** `@hello-pangea/dnd`
 ---
 
 
